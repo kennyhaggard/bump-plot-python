@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 def bumpchart(df, show_rank_axis= True, rank_axis_distance= 1.1, 
-              ax= None, scatter= False, holes= False,
+              ax= None, scatter= False, holes= False, colors = ['r','g','b'],
               line_args= {}, scatter_args= {}, hole_args= {}):
     
     if ax is None:
@@ -10,6 +10,9 @@ def bumpchart(df, show_rank_axis= True, rank_axis_distance= 1.1,
     else:
         left_yaxis = ax
 
+    #Set the color cycle for lines
+    left_yaxis.set_prop_cycle(color=colors)
+    
     # Creating the right axis.
     right_yaxis = left_yaxis.twinx()
     
